@@ -11,23 +11,33 @@ export class WhereCoffeApiService {
   constructor(@InjectModel(WhereCoffee.name) private whereCoffeeModel: Model<WhereCoffeeDocuments>) {}
 
   create(createWhereCoffeApiDto: CreateWhereCoffeApiDto) {
-    const user = new this.whereCoffeeModel(createWhereCoffeApiDto)
-    return user.save();
+    const coffees = new this.whereCoffeeModel(createWhereCoffeApiDto)
+    return coffees.save();
   }
 
   findAll() {
-    return `This action returns all whereCoffeApi`;
+    return this.whereCoffeeModel.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} whereCoffeApi`;
+  findOne(id: string) {
+    return this.whereCoffeeModel.findById(id)
   }
 
-  update(id: number, updateWhereCoffeApiDto: UpdateWhereCoffeApiDto) {
-    return `This action updates a #${id} whereCoffeApi`;
+  update(id: string, updateWhereCoffeApiDto: UpdateWhereCoffeApiDto) {
+    return this.whereCoffeeModel.findByIdAndUpdate({
+      _id : id
+    },{
+      updateWhereCoffeApiDto
+    },
+    {
+      new: true,
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} whereCoffeApi`;
+  remove(id: string) {
+    return this.whereCoffeeModel.deleteOne({
+      _id: id,
+    })
+    .exec();
   }
 }

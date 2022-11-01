@@ -7,6 +7,7 @@ import { WhereCoffee, WhereCoffeeSchema } from './entities/where-coffe-api.entit
 @Module({
   imports: [MongooseModule.forFeature([{ name: WhereCoffee.name, schema: WhereCoffeeSchema }])],
   controllers: [WhereCoffeApiController],
-  providers: [WhereCoffeApiService]
+  providers: [WhereCoffeApiService],
+  exports: [WhereCoffeApiService],
 })
 export class WhereCoffeApiModule {}
