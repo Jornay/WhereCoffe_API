@@ -27,7 +27,7 @@ export class WhereCoffeApiService {
     return this.whereCoffeeModel.findByIdAndUpdate({
       _id : id
     },{
-      updateWhereCoffeApiDto
+      $set: updateWhereCoffeApiDto
     },
     {
       new: true,

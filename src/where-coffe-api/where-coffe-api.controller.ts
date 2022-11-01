@@ -7,12 +7,12 @@ import { UpdateWhereCoffeApiDto } from './dto/update-where-coffe-api.dto';
 export class WhereCoffeApiController {
   constructor(private readonly whereCoffeApiService: WhereCoffeApiService) {}
 
-  @Post()
+  @Post('')
   create(@Body() createWhereCoffeApiDto: CreateWhereCoffeApiDto) {
     return this.whereCoffeApiService.create(createWhereCoffeApiDto);
   }
 
-  @Get('')
+  @Get('/list')
   findAll() {
     return this.whereCoffeApiService.findAll();
   }
