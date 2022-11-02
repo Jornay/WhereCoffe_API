@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 import { CreateWhereCoffeApiDto } from './dto/create-where-coffe-api.dto';
 import { UpdateWhereCoffeApiDto } from './dto/update-where-coffe-api.dto';
 import { WhereCoffee, WhereCoffeeDocuments } from './entities/where-coffe-api.entity';
+import { WhereCoffeeProxy } from './where-coffe-api-module.proxy';
 
 @Injectable()
 export class WhereCoffeApiService {
